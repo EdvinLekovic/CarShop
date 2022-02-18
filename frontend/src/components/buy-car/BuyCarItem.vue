@@ -10,10 +10,10 @@
       <div class="flex m-auto">
         <div class="flex justify-content-end">
           <router-link class="flex btn btn-dark m-1" :to="linkToMore">More info</router-link>
-          <button class="btn btn-danger m-1" @click="deleteCar(car.id)">
-            <font-awesome-icon :icon="['trash']" style="width: 20px;height: 20px"/>
+          <button v-if="$store.getters?.getUser?.role === 'ADMIN'" class="btn btn-danger m-1" @click="deleteCar(car.id)">
+            <font-awesome-icon  :icon="['trash']" style="width: 20px;height: 20px"/>
           </button>
-          <router-link class="btn btn-primary m-1" :to="editLink">Edit</router-link>
+          <router-link v-if="$store.getters?.getUser?.role === 'ADMIN'"  class="btn btn-primary m-1" :to="editLink">Edit</router-link>
         </div>
       </div>
     </div>
