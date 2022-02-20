@@ -150,6 +150,10 @@
 
 export default {
   name: "HomePage",
+  mounted() {
+    console.log(this.$router.currentRoute.value.path);
+    console.log(this.$router.options.history.state.back);
+  }
 };
 </script>
 

@@ -13,7 +13,9 @@
         </div>
         <div class="d-flex me-5" style="width: 150px;">
           <!--          data-bs-toggle="modal" data-bs-target="#exampleModal"-->
-          <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy Now</button>
+          <button class="btn btn-danger w-100" @click="checkIfUserIsLogged">Buy Now</button>
+          <button id="openPaymentModal" class="d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy Now
+          </button>
         </div>
       </div>
     </div>
@@ -32,6 +34,13 @@ export default {
       console.log("here");
       // document.getElementById("openModal").click();
     },
+    checkIfUserIsLogged() {
+      if (!this.$store.getters.getUser) {
+        this.$router.push("/login");
+      } else {
+        document.getElementById('openPaymentModal').click();
+      }
+    }
   },
 }
 </script>

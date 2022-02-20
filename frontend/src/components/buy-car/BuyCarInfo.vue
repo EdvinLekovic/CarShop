@@ -4,7 +4,7 @@
                       :model="car.model.name"
                       :price="car.price"
                       :year="car.year"/>
-    <PaymentModalForm :carId="car.id" :carPrice="car.price"/>
+    <PaymentModalForm v-if="$store.getters.getUser" :carId="car.id" :carPrice="car.price"/>
     <SuccessfulPaymentModal/>
     <div>
       <div class="d-flex border-secondary border justify-content-between m-auto"

@@ -153,7 +153,7 @@ export default {
   methods: {
     loadCreditCards() {
       paymentService.findAllCreditCardsByUser({
-            username: this.$store.getters.getUser.username
+            username: this.$store.getters?.getUser?.username
           }
       ).then(response => {
         this.creditCards = response.data;

@@ -56,7 +56,8 @@ export default {
                 console.log("user returned");
                 state.user = response.data;
                 console.log(state.user);
-                if (tokenRequest.thisObj.$router.currentRoute.value.path === '/login') {
+                if (tokenRequest.thisObj.$router.currentRoute.value.path === '/login' &&
+                    tokenRequest.thisObj.$router.options.history.state.back !== '/register') {
                     tokenRequest.thisObj.$router.back();
                 }
             }
