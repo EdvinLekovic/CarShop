@@ -1,11 +1,14 @@
 <template>
   <div class="">
-    <div class="services px-5 py-2 max-w mx-auto">
+    <div class="services px-5 py-2 max-w mx-auto" >
       <h1 class="display-5 ms-2 text-center">Your services</h1>
       <h2 class="text-center mt-4" v-if="services.length === 0">No Services yet</h2>
       <Service v-else v-for="s in services" :key="s.id" :service="s"/>
-      <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">Add service
-      </button>
+      <div class="ms-2">
+        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">
+          Add service
+        </button>
+      </div>
     </div>
     <AddServiceModal/>
   </div>

@@ -52,7 +52,7 @@ public class CarServiceImpl implements CarService {
         Brand brand = mapper.readValue(addCarDto.getBrand(), Brand.class);
         Model model = mapper.readValue(addCarDto.getModel(), Model.class);
         Long emissions = Long.parseLong(addCarDto.getEmissions());
-        Long price = Long.parseLong(addCarDto.getEmissions());
+        Long price = Long.parseLong(addCarDto.getPrice());
         Long year = Long.parseLong(addCarDto.getYear());
         Long quantity = Long.parseLong(addCarDto.getQuantity());
         Car car = new Car(brand,
@@ -83,16 +83,27 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Optional<Car> editCar(EditCarDto editCarDto) {
-        Car car = carRepository
-                .findById(editCarDto.getId())
+        Car car = carRepository.findById(editCarDto.getId())
                 .orElseThrow(() -> new CarNotFoundException(editCarDto.getId()));
 
-        car.setFuelTankType(editCarDto.getFuelTankType());
-        car.setEngine(editCarDto.getEngine());
-        car.setEmissions(editCarDto.getEmissions());
-        car.setTires(editCarDto.getTires());
-        car.setPrice(editCarDto.getPrice());
-        car.setDescription(editCarDto.getDescription());
+        if (!editCarDto.getFuelTankType().toString().isEmpty()) {
+            car.setFuelTankType(editCarDto.getFuelTankType());
+        }
+        if (!editCarDto.getEngine().isEmpty()) {
+            car.setEngine(editCarDto.getEngine());
+        }
+        if (editCarDto.getEmissions() != null) {
+            car.setEmissions(editCarDto.getEmissions());
+        }
+        if (!editCarDto.getTires().isEmpty()) {
+            car.setTires(editCarDto.getTires());
+        }
+        if (editCarDto.getPrice() != null) {
+            car.setPrice(editCarDto.getPrice());
+        }
+        if (!editCarDto.getDescription().isEmpty()) {
+            car.setDescription(editCarDto.getDescription());
+        }
         return Optional.of(carRepository.save(car));
     }
 

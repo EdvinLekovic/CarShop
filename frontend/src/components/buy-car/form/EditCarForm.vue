@@ -1,5 +1,5 @@
 <template>
-  <Form width="800px" height="600px">
+  <Form width="800px" height="650px">
     <form @submit.prevent="editCar">
       <div class="d-flex justify-content-center">
         <h3 class="mt-5">Form for editing car</h3>
@@ -26,8 +26,13 @@
         <label>Price:</label>
         <input type="number" required class="form-control" placeholder="Enter the car emissions" v-model="price">
       </div>
+      <div class="d-flex flex-column ms-2 mt-3 me-2">
+        <label>Description:</label>
+        <textarea type="number" required class="form-control" placeholder="Enter the car emissions"
+                  v-model="description"/>
+      </div>
       <div class="d-flex ms-2 mt-3">
-        <button type="submit" class="btn btn-secondary">Add New Car</button>
+        <button type="submit" class="btn btn-secondary">Edit Car</button>
       </div>
     </form>
   </Form>
@@ -47,8 +52,9 @@ export default {
       selectedFuelTankType: '',
       engine: '',
       tiresType: '',
-      emissions: '',
-      price: ''
+      emissions: null,
+      price: null,
+      description: ''
     }
   },
   methods: {
@@ -59,7 +65,8 @@ export default {
         engine: this.engine,
         tires: this.tiresType,
         emissions: this.emissions,
-        price: this.price
+        price: this.price,
+        description: this.description,
       }).then(() => {
         this.$router.push('/buy-car')
       })

@@ -185,7 +185,7 @@ export default {
       this.transactionalNumber = '';
       this.expirationMonth = '';
       this.expirationYear = '';
-      this.cvvCode = '';
+      this.cvvCodeForNew = '';
     },
     buyNewCar() {
       console.log("buyNewCar");

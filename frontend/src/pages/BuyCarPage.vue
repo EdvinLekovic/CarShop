@@ -59,7 +59,7 @@ export default {
         if (filterObj.brands.length > 0) {
           this.filteredCars = this.filteredCars.filter(car => filterObj.brands.includes(car.brand.name));
         }
-
+        console.log(filterObj.models[0]);
         if (filterObj.models.length > 0) {
           this.filteredCars = this.filteredCars.filter(car => filterObj.models.includes(car.model.name))
         }

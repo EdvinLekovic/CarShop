@@ -45,6 +45,7 @@ public class Car {
 
     private Long year;
 
+    @Column(length = 1000)
     private String description;
 
     private Long quantity;

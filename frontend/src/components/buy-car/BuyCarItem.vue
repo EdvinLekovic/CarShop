@@ -65,6 +65,7 @@ export default {
   mounted() {
     console.log("mounted CartItem")
     this.getAllImages();
+    console.log(this.car);
   }
 }
 </script>

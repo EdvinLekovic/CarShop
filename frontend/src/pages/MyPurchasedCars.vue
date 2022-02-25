@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" style="height: 500px">
     <h1 class="text-center mt-2">My Purchased Cars</h1>
     <h2 v-if="cars.length === 0" class="text-center mt-2">No cars available</h2>
     <table v-else class="mt-4 table table-striped table-hover">
